@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'package:wikicinema/config/router/app_router.dart';
+import 'package:wikicinema/config/theme/app_theme.dart';
+
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
@@ -7,16 +10,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      routerConfig: appRouter,
+      debugShowCheckedModeBanner: false,
       title: 'Wikicinema',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Wikicinema'),
-        ),
-        body: const Center(
-          child: Text('Esta será una app de peliculas'),
-        ),
-      ),
+      theme: AppTheme().getTheme(),
     );
   }
 }
