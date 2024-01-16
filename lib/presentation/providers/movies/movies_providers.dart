@@ -10,11 +10,11 @@ final nowPlayingMoviesProvider =
   );
 });
 
-typedef MovieCallBack = Future<List<Movie>> Function({int page});
+typedef MovieCallback = Future<List<Movie>> Function({int page});
 
 class MoviesNotifier extends StateNotifier<List<Movie>> {
   int currentPage = 0;
-  MovieCallBack fetchMoreMovies;
+  MovieCallback fetchMoreMovies;
 
   MoviesNotifier({
     required this.fetchMoreMovies,
