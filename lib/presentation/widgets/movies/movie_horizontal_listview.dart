@@ -1,5 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:wikicinema/config/helpers/human_formats.dart';
 import 'package:wikicinema/domain/entities/movie.dart';
 
@@ -60,7 +61,9 @@ class _MovieHorizontalListviewState extends State<MovieHorizontalListview> {
               physics: const BouncingScrollPhysics(),
               itemBuilder: (context, index) {
                 return FadeInRight(
-                  child: _Slide(movie: widget.movies[index]),
+                  child: _Slide(
+                    movie: widget.movies[index],
+                  ),
                 );
               },
             ),
@@ -104,7 +107,10 @@ class _Slide extends StatelessWidget {
                       ),
                     );
                   }
-                  return FadeIn(child: child);
+                  return GestureDetector(
+                    onTap: () => context.push('/movie/${movie.id}'),
+                    child: FadeIn(child: child),
+                  );
                 },
               ),
             ),
