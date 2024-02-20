@@ -43,9 +43,15 @@ class _PosterWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox.expand(
-      child: Image.network(
-        movie.posterPath,
-        fit: BoxFit.cover,
+      child: ClipRRect(
+        borderRadius: const BorderRadius.only(
+          bottomLeft: Radius.circular(10),
+          bottomRight: Radius.circular(10),
+        ),
+        child: Image.network(
+          movie.posterPath,
+          fit: BoxFit.cover,
+        ),
       ),
     );
   }
@@ -57,16 +63,22 @@ class _TitleGradient extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const SizedBox.expand(
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            stops: [0.7, 1.0],
-            colors: [
-              Colors.transparent,
-              Colors.black87,
-            ],
+      child: ClipRRect(
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(10),
+          bottomRight: Radius.circular(10),
+        ),
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              stops: [0.7, 1.0],
+              colors: [
+                Colors.transparent,
+                Colors.black87,
+              ],
+            ),
           ),
         ),
       ),
