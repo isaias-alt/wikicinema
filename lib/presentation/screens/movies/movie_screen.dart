@@ -41,6 +41,12 @@ class MovieScreenState extends ConsumerState<MovieScreen> {
         physics: const ClampingScrollPhysics(),
         slivers: [
           CustomSliverAppBar(movie: movie),
+          SliverList(
+            delegate: SliverChildBuilderDelegate(
+              (context, index) => MovieDetails(movie: movie),
+              childCount: 1,
+            ),
+          ),
         ],
       ),
     );
