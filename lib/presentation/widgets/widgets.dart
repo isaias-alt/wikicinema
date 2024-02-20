@@ -6,3 +6,4 @@ export 'shared/full_screen_loader.dart';
 // movies
 export 'movies/movies_slideshow.dart';
 export 'movies/movie_horizontal_listview.dart';
+export 'movies/custom_sliver_appbar.dart';
