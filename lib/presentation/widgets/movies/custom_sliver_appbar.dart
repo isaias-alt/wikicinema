@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:wikicinema/domain/entities/movie.dart';
 
@@ -13,6 +14,7 @@ class CustomSliverAppBar extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return SliverAppBar(
       expandedHeight: size.height * 0.7,
+      backgroundColor: Colors.black,
       foregroundColor: Colors.white,
       flexibleSpace: FlexibleSpaceBar(
         titlePadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
@@ -45,6 +47,10 @@ class _PosterWidget extends StatelessWidget {
         child: Image.network(
           movie.posterPath,
           fit: BoxFit.cover,
+          loadingBuilder: (context, child, loadingProgress) {
+            if (loadingProgress != null) return const SizedBox();
+            return FadeIn(child: child);
+          },
         ),
       ),
     );
