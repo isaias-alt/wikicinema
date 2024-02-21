@@ -16,16 +16,10 @@ class CustomSliverAppBar extends StatelessWidget {
       foregroundColor: Colors.white,
       flexibleSpace: FlexibleSpaceBar(
         titlePadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-        title: Text(
-          movie.title,
-          style: const TextStyle(fontSize: 20),
-          textAlign: TextAlign.start,
-        ),
         background: Stack(
           children: [
             _PosterWidget(movie: movie),
-            const _TitleGradient(),
-            const _BackToGradient()
+            const _BackToGradient(),
           ],
         ),
       ),
@@ -51,35 +45,6 @@ class _PosterWidget extends StatelessWidget {
         child: Image.network(
           movie.posterPath,
           fit: BoxFit.cover,
-        ),
-      ),
-    );
-  }
-}
-
-class _TitleGradient extends StatelessWidget {
-  const _TitleGradient();
-
-  @override
-  Widget build(BuildContext context) {
-    return const SizedBox.expand(
-      child: ClipRRect(
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(10),
-          bottomRight: Radius.circular(10),
-        ),
-        child: DecoratedBox(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              stops: [0.7, 1.0],
-              colors: [
-                Colors.transparent,
-                Colors.black87,
-              ],
-            ),
-          ),
         ),
       ),
     );
