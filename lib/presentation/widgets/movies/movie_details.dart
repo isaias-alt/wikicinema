@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:wikicinema/domain/entities/movie.dart';
 import 'package:wikicinema/presentation/providers/actors/actors_by_movie_provider.dart';
+
+import 'actors_listview.dart';
 
 class MovieDetails extends StatelessWidget {
   final Movie movie;
@@ -18,6 +19,7 @@ class MovieDetails extends StatelessWidget {
       children: [
         //* title
         _MovieTitle(movie: movie),
+
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -122,7 +124,6 @@ class _ActorsByMovie extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final actorsByMovie = ref.watch(actorsByMovieProvider);
-    final textStyles = Theme.of(context).textTheme;
 
     if (actorsByMovie[movieId] == null) {
       return const Padding(
@@ -132,56 +133,6 @@ class _ActorsByMovie extends ConsumerWidget {
     }
     final actors = actorsByMovie[movieId]!;
 
-    return SizedBox(
-      height: 300,
-      child: ListView.builder(
-        physics: const BouncingScrollPhysics(),
-        scrollDirection: Axis.horizontal,
-        itemCount: actors.length,
-        itemBuilder: (context, index) {
-          final actor = actors[index];
-          return Container(
-            padding: const EdgeInsets.all(10),
-            width: 135,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                //* Image
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
-                  child: Image.network(
-                    actor.profilePath,
-                    height: 180,
-                    width: 135,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-
-                const SizedBox(height: 5),
-
-                //* Actor Name
-                Text(
-                  actor.name,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                ),
-
-                //* Character
-                Text(
-                  actor.character ?? '',
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: textStyles.bodySmall,
-                ),
-              ],
-            ),
-          );
-        },
-      ),
-    );
+    return ActorsListview(actors: actors);
   }
 }
