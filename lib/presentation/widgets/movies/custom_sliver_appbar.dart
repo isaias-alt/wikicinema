@@ -39,19 +39,13 @@ class _PosterWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox.expand(
-      child: ClipRRect(
-        borderRadius: const BorderRadius.only(
-          bottomLeft: Radius.circular(10),
-          bottomRight: Radius.circular(10),
-        ),
-        child: Image.network(
-          movie.posterPath,
-          fit: BoxFit.cover,
-          loadingBuilder: (context, child, loadingProgress) {
-            if (loadingProgress != null) return const SizedBox();
-            return FadeIn(child: child);
-          },
-        ),
+      child: Image.network(
+        movie.posterPath,
+        fit: BoxFit.cover,
+        loadingBuilder: (context, child, loadingProgress) {
+          if (loadingProgress != null) return const SizedBox();
+          return FadeIn(child: child);
+        },
       ),
     );
   }
