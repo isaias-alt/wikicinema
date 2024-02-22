@@ -7,7 +7,7 @@ class MovieMapper {
         adult: moviedb.adult,
         backdropPath: (moviedb.backdropPath != '')
             ? 'https://image.tmdb.org/t/p/w500/${moviedb.backdropPath}'
-            : 'https://linnea.com.ar/wp-content/uploads/2018/09/404PosterNotFound.jpg',
+            : 'https://www.csaff.org/wp-content/uploads/csaff-no-poster.jpg',
         genreIds: moviedb.genreIds.map((e) => e.toString()).toList(),
         id: moviedb.id,
         originalLanguage: moviedb.originalLanguage,
@@ -16,7 +16,7 @@ class MovieMapper {
         popularity: moviedb.popularity,
         posterPath: (moviedb.posterPath != '')
             ? 'https://image.tmdb.org/t/p/w500/${moviedb.posterPath}'
-            : 'no-poster',
+            : 'https://www.csaff.org/wp-content/uploads/csaff-no-poster.jpg',
         releaseDate: moviedb.releaseDate,
         title: moviedb.title,
         video: moviedb.video,
@@ -28,7 +28,7 @@ class MovieMapper {
         adult: moviedb.adult,
         backdropPath: (moviedb.backdropPath != '')
             ? 'https://image.tmdb.org/t/p/w500/${moviedb.backdropPath}'
-            : 'https://linnea.com.ar/wp-content/uploads/2018/09/404PosterNotFound.jpg',
+            : 'https://www.csaff.org/wp-content/uploads/csaff-no-poster.jpg',
         genreIds: moviedb.genres.map((e) => e.name).toList(),
         id: moviedb.id,
         originalLanguage: moviedb.originalLanguage,
@@ -37,7 +37,7 @@ class MovieMapper {
         popularity: moviedb.popularity,
         posterPath: (moviedb.posterPath != '')
             ? 'https://image.tmdb.org/t/p/w500/${moviedb.posterPath}'
-            : 'https://linnea.com.ar/wp-content/uploads/2018/09/404PosterNotFound.jpg',
+            : 'https://www.csaff.org/wp-content/uploads/csaff-no-poster.jpg',
         releaseDate: moviedb.releaseDate,
         title: moviedb.title,
         video: moviedb.video,
