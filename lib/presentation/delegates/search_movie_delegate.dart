@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
+import 'package:go_router/go_router.dart';
 import 'package:wikicinema/domain/entities/movie.dart';
+
+import '../widgets/movies/movie_search_items.dart';
 
 typedef SearchMoviesCallback = Future<List<Movie>> Function(String query);
 
@@ -50,8 +53,9 @@ class SearchMoviesDelegate extends SearchDelegate<Movie?> {
           itemCount: movies.length,
           itemBuilder: (context, index) {
             final movie = movies[index];
-            return ListTile(
-              title: Text(movie.title),
+            return GestureDetector(
+              onTap: () => context.push('/movie/${movie.id}'),
+              child: MovieSearchItems(movie: movie),
             );
           },
         );
