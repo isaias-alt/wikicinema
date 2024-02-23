@@ -5,10 +5,12 @@ import 'package:wikicinema/domain/entities/movie.dart';
 
 class MovieSearchItems extends StatelessWidget {
   final Movie movie;
+  final Function onMovieSelected;
 
   const MovieSearchItems({
     super.key,
     required this.movie,
+    required this.onMovieSelected,
   });
 
   @override
