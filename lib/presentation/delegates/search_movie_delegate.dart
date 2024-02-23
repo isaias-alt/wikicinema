@@ -82,11 +82,12 @@ class SearchMoviesDelegate extends SearchDelegate<Movie?> {
             return GestureDetector(
               onTap: () => context.push('/movie/${movie.id}'),
               child: MovieSearchItems(
-                  movie: movie,
-                  onMovieSelected: (context, movie) {
-                    _clearStreams();
-                    close(context, movie);
-                  }),
+                movie: movie,
+                onMovieSelected: (context, movie) {
+                  _clearStreams();
+                  close(context, movie);
+                },
+              ),
             );
           },
         );
