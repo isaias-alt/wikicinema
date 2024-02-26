@@ -46,7 +46,7 @@ class SearchMoviesDelegate extends SearchDelegate<Movie?> {
           itemBuilder: (context, index) {
             final movie = movies[index];
             return GestureDetector(
-              onTap: () => context.push('/movie/${movie.id}'),
+              onTap: () => context.push('/home/0/movie/${movie.id}'),
               child: MovieSearchItems(
                 movie: movie,
                 onMovieSelected: (context, movie) {
