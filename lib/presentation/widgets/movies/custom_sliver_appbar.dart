@@ -16,12 +16,27 @@ class CustomSliverAppBar extends StatelessWidget {
       expandedHeight: size.height * 0.7,
       backgroundColor: Colors.black,
       foregroundColor: Colors.white,
+      actions: [
+        IconButton(
+          onPressed: () {},
+          // icon: Icon(Icons.favorite_border),
+          icon: const Icon(Icons.favorite_rounded, color: Colors.red),
+        )
+      ],
       flexibleSpace: FlexibleSpaceBar(
         titlePadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         background: Stack(
           children: [
             _PosterWidget(movie: movie),
-            const _BackToGradient(),
+            const _CustomGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomLeft,
+              stops: [0.0, 0.3],
+              colors: [
+                Colors.black54,
+                Colors.transparent,
+              ],
+            ),
           ],
         ),
       ),
@@ -30,11 +45,11 @@ class CustomSliverAppBar extends StatelessWidget {
 }
 
 class _PosterWidget extends StatelessWidget {
+  final Movie movie;
+
   const _PosterWidget({
     required this.movie,
   });
-
-  final Movie movie;
 
   @override
   Widget build(BuildContext context) {
@@ -51,22 +66,29 @@ class _PosterWidget extends StatelessWidget {
   }
 }
 
-class _BackToGradient extends StatelessWidget {
-  const _BackToGradient();
+class _CustomGradient extends StatelessWidget {
+  final AlignmentGeometry begin;
+  final AlignmentGeometry end;
+  final List<double> stops;
+  final List<Color> colors;
+
+  const _CustomGradient({
+    required this.begin,
+    required this.end,
+    required this.stops,
+    required this.colors,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return const SizedBox.expand(
+    return SizedBox.expand(
       child: DecoratedBox(
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomLeft,
-            stops: [0.0, 0.3],
-            colors: [
-              Colors.black87,
-              Colors.transparent,
-            ],
+            begin: begin,
+            end: end,
+            stops: stops,
+            colors: colors,
           ),
         ),
       ),
