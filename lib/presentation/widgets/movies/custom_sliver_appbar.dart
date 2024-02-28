@@ -35,7 +35,7 @@ class CustomSliverAppBar extends ConsumerWidget {
             ref.invalidate(isFavoriteProvider(movie.id));
           },
           icon: isFavorite.when(
-            loading: () => const CircularProgressIndicator(strokeWidth: 2),
+            loading: () => const Icon(Icons.favorite_border),
             data: (isFavorite) => isFavorite
                 ? const Icon(Icons.favorite_rounded, color: Colors.red)
                 : const Icon(Icons.favorite_border),
