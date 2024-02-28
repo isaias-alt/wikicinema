@@ -2,10 +2,10 @@ import 'package:wikicinema/domain/datasources/local_storage_datasource.dart';
 import 'package:wikicinema/domain/entities/movie.dart';
 import 'package:wikicinema/domain/repositories/local_storage_repository.dart';
 
-class LocalRepositoryImpl extends LocalStorageRespository {
+class LocalStorageRepositoryImpl extends LocalStorageRespository {
   final LocalStorageDatasource datasource;
 
-  LocalRepositoryImpl({required this.datasource});
+  LocalStorageRepositoryImpl({required this.datasource});
   @override
   Future<bool> isMovieFavorite(int movieId) {
     return datasource.isMovieFavorite(movieId);
