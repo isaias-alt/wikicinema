@@ -53,7 +53,7 @@ class FavoritesViewState extends ConsumerState<FavoritesView>
             ),
             const Text(
               'No tinenes películas favoritas',
-              style: TextStyle(fontSize: 20, color: Colors.black45),
+              style: TextStyle(fontSize: 20, color: Colors.white54),
             ),
           ],
         ),

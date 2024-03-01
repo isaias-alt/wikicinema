@@ -34,7 +34,13 @@ class MovieDetails extends StatelessWidget {
         _MovieGender(movie: movie),
 
         //* Actors
-        _ActorsByMovie(movieId: movie.id.toString())
+        _ActorsByMovie(movieId: movie.id.toString()),
+
+        //* Videos (if any)
+        VideosFromMovie(movieId: movie.id),
+
+        //* Similar Movies
+        SimilarMovies(movieId: movie.id),
       ],
     );
   }
