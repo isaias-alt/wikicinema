@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:animate_do/animate_do.dart';
 import 'package:wikicinema/config/helpers/human_formats.dart';
 import 'package:wikicinema/domain/entities/movie.dart';
 
@@ -17,6 +16,7 @@ class MovieSearchItems extends StatelessWidget {
   Widget build(BuildContext context) {
     final textStyles = Theme.of(context).textTheme;
     final size = MediaQuery.of(context).size;
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       child: Row(
@@ -26,18 +26,11 @@ class MovieSearchItems extends StatelessWidget {
             width: size.width * 0.2,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(10),
-              child: Image.network(
-                movie.posterPath,
-                loadingBuilder: (context, child, loadingProgress) {
-                  if (loadingProgress != null) {
-                    return const Center(
-                      child: CircularProgressIndicator(
-                        strokeWidth: 2,
-                      ),
-                    );
-                  }
-                  return FadeIn(child: child);
-                },
+              child: FadeInImage(
+                height: 130,
+                placeholder:
+                    const AssetImage('assets/loaders/bottle-loader.gif'),
+                image: NetworkImage(movie.posterPath),
               ),
             ),
           ),

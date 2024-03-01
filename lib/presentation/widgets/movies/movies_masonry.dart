@@ -54,7 +54,7 @@ class _MoviesMasonryState extends State<MoviesMasonry> {
           if (index == 1) {
             return Column(
               children: [
-                const SizedBox(height: 35),
+                const SizedBox(height: 20),
                 MoviesPosterLink(movies: widget.movie[index]),
               ],
             );

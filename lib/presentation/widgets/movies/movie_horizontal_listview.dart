@@ -1,8 +1,8 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:wikicinema/config/helpers/human_formats.dart';
 import 'package:wikicinema/domain/entities/movie.dart';
+import 'package:wikicinema/presentation/widgets/widgets.dart';
 
 class MovieHorizontalListview extends StatefulWidget {
   final List<Movie> movies;
@@ -94,24 +94,15 @@ class _Slide extends StatelessWidget {
             width: 150,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20),
-              child: Image.network(
-                movie.posterPath,
-                fit: BoxFit.cover,
-                width: 150,
-                loadingBuilder: (context, child, loadingProgress) {
-                  if (loadingProgress != null) {
-                    return const Padding(
-                      padding: EdgeInsets.all(10),
-                      child: Center(
-                        child: CircularProgressIndicator(strokeWidth: 2),
-                      ),
-                    );
-                  }
-                  return GestureDetector(
-                    onTap: () => context.push('/home/0/movie/${movie.id}'),
-                    child: FadeIn(child: child),
-                  );
-                },
+              child: GestureDetector(
+                onTap: () => context.push('/home/0/movie/${movie.id}'),
+                child: FadeInImage(
+                  height: 220,
+                  fit: BoxFit.cover,
+                  placeholder:
+                      const AssetImage('assets/loaders/bottle-loader.gif'),
+                  image: NetworkImage(movie.posterPath),
+                ),
               ),
             ),
           ),
@@ -126,30 +117,7 @@ class _Slide extends StatelessWidget {
             ),
           ),
           //* Rating
-          Expanded(
-            child: SizedBox(
-              width: 150,
-              child: Row(
-                children: [
-                  Icon(Icons.star_half_outlined, color: Colors.yellow.shade800),
-                  const SizedBox(width: 3),
-                  Text(
-                    HumanFormats.numbers(movie.voteAverage, 2),
-                    style: textStyles.bodyMedium!.copyWith(
-                      color: Colors.yellow.shade800,
-                    ),
-                  ),
-                  const Spacer(),
-                  Text(
-                    HumanFormats.numbers(
-                      movie.popularity,
-                    ),
-                    style: textStyles.bodyMedium,
-                  ),
-                ],
-              ),
-            ),
-          )
+          MovieRating(voteAverage: movie.voteAverage),
         ],
       ),
     );
