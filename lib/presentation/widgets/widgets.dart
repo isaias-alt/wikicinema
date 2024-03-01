@@ -10,3 +10,4 @@ export 'movies/custom_sliver_appbar.dart';
 export 'movies/movie_details.dart';
 export 'movies/movies_masonry.dart';
 export 'movies/movie_poster_link.dart';
+export 'movies/movie_rating.dart';
