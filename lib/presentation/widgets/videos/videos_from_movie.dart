@@ -106,7 +106,10 @@ class _YouTubeVideoPlayerState extends State<_YouTubeVideoPlayer> {
         padding: const EdgeInsets.symmetric(horizontal: 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [Text(widget.name), YoutubePlayer(controller: _controller)],
+          children: [
+            Text(widget.name),
+            YoutubePlayer(controller: _controller),
+          ],
         ));
   }
 }
