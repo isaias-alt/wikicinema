@@ -69,6 +69,7 @@ class _MovieSynopsisAndRating extends StatelessWidget {
           SizedBox(
             width: (size.width - 40) * 0.7,
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(movie.title, style: textStyles.titleLarge),
                 Text(movie.overview),
