@@ -1,16 +1,43 @@
-# wikicinema
+# Wikicinema
 
-A new Flutter project.
+Film recommendation app. Wikicinema uses [The Movie Database (TMDB) API](https://www.themoviedb.org/) to obtain information about movies. The app is regularly updated with new data, so you will always have access to the latest information. Delivering a complete experience for movie enthusiasts.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- **Discover**: Find movies in theaters, upcoming releases, best rated and popular.
 
-A few resources to get you started if this is your first Flutter project:
+- **Explore**: Access detailed information about each movie, including synopsis, cast, trailers and similar recommendations.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- **Search**: Easily find specific movies by title or keyword.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- **Save**: Keep a record of your favorite movies for future reference.
+
+## Tech Stack
+
+- `Flutter`
+- `Dart`
+- `Riverpod`
+- `Isar`
+
+## Installation and configuration
+
+1. Clone this repository to your local machine.
+
+2. Make sure you have your own [TMDB API key](https://www.themoviedb.org/settings/api).
+
+3. Create `.env` file based on `.env.template`-
+
+4. Run the following commands:
+```bash
+  flutter pub run build_runner build
+```
+
+```bash
+  flutter pub get
+```
+
+5. Run the app.
+
+## Additional Resources
+
+- [Isar documentation](https://isar.dev/).
