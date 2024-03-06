@@ -9,7 +9,6 @@ class CustomAppbar extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final colors = Theme.of(context).colorScheme;
-    final titleStyle = Theme.of(context).textTheme.titleMedium;
     return SafeArea(
       bottom: false,
       child: Padding(
@@ -18,10 +17,14 @@ class CustomAppbar extends ConsumerWidget {
           width: double.infinity,
           child: Row(
             children: [
-              Icon(Icons.movie_outlined, color: colors.primary),
+              Image.asset('assets/logo/logo.png', fit: BoxFit.cover),
+              
               const SizedBox(width: 5),
-              Text('Wikicinema', style: titleStyle),
+              
+              Text('Wikicinema', style: TextStyle(color: colors.primary, fontSize: 22)),
+              
               const Spacer(),
+
               IconButton(
                 onPressed: () {
                   final searchQuery = ref.read(searchQueryProvider);
@@ -31,9 +34,7 @@ class CustomAppbar extends ConsumerWidget {
                     context: context,
                     delegate: SearchMoviesDelegate(
                       initialMovies: searchedMovies,
-                      searchMovies: ref
-                          .read(searchedMoviesProvider.notifier)
-                          .searchMoviesByQuery,
+                      searchMovies: ref.read(searchedMoviesProvider.notifier).searchMoviesByQuery,
                     ),
                   );
                 },
