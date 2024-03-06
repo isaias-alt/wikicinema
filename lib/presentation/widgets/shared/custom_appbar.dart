@@ -21,7 +21,7 @@ class CustomAppbar extends ConsumerWidget {
               
               const SizedBox(width: 5),
               
-              Text('Wikicinema', style: TextStyle(color: colors.primary, fontSize: 22)),
+              Text('Wikicinema', style: TextStyle(color: colors.primary, fontSize: 20)),
               
               const Spacer(),
 
