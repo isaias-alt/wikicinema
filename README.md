@@ -37,5 +37,5 @@ Film recommendation app. Wikicinema uses [The Movie Database (TMDB) API](https:/
 
 ## Additional Resources
 
-- [Isar documentation](https://isar.dev/){:target="_blank"}
-- [Riverpod documentation](https://docs-v2.riverpod.dev/){:target="_blank"}
+- [Isar documentation](https://isar.dev/)
+- [Riverpod documentation](https://docs-v2.riverpod.dev/)
