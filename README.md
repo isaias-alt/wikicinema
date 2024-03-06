@@ -27,10 +27,7 @@ Film recommendation app. Wikicinema uses [The Movie Database (TMDB) API](https:/
 
 3. Create `.env` file based on `.env.template`-
 
-4. Run the following commands:
-```bash
-  flutter pub run build_runner build
-```
+4. Run the following command:
 
 ```bash
   flutter pub get
@@ -40,4 +37,4 @@ Film recommendation app. Wikicinema uses [The Movie Database (TMDB) API](https:/
 
 ## Additional Resources
 
-- [Isar documentation](https://isar.dev/).
+- [Isar documentation](https://isar.dev/)
