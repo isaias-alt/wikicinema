@@ -1,5 +1,8 @@
 # Wikicinema
 
+![wikicinema](https://github.com/isaias-alt/wikicinema/assets/79144752/9b7c5387-5527-4280-b34f-25cb7912bfd7)
+
+
 Film recommendation app. Wikicinema uses [The Movie Database (TMDB) API](https://www.themoviedb.org/) to obtain information about movies. The app is regularly updated with new data, so you will always have access to the latest information. Delivering a complete experience for movie enthusiasts.
 
 ## Features
