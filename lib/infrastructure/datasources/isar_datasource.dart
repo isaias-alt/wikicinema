@@ -24,32 +24,44 @@ class IsarDatasource extends LocalStorageDatasource {
 
   @override
   Future<bool> isMovieFavorite(int movieId) async {
-    final isar = await db;
+    try {
+      final isar = await db;
 
-    final Movie? isFavoriteMovie =
-        await isar.movies.filter().idEqualTo(movieId).findFirst();
+      final Movie? isFavoriteMovie =
+          await isar.movies.filter().idEqualTo(movieId).findFirst();
 
-    return isFavoriteMovie != null;
+      return isFavoriteMovie != null;
+    } catch (e) {
+      throw Exception(e);
+    }
   }
 
   @override
   Future<List<Movie>> loadMovies({int limit = 10, offset = 0}) async {
-    final isar = await db;
+    try {
+      final isar = await db;
 
-    return isar.movies.where().offset(offset).limit(limit).findAll();
+      return isar.movies.where().offset(offset).limit(limit).findAll();
+    } catch (e) {
+      throw Exception(e);
+    }
   }
 
   @override
   Future<void> toggleFavorite(Movie movie) async {
-    final isar = await db;
+    try {
+      final isar = await db;
 
-    final favoritesMovies =
-        await isar.movies.filter().idEqualTo(movie.id).findFirst();
+      final favoritesMovies =
+          await isar.movies.filter().idEqualTo(movie.id).findFirst();
 
-    if (favoritesMovies != null) {
-      isar.writeTxnSync(() => isar.movies.deleteSync(movie.isarId!));
-      return;
+      if (favoritesMovies != null) {
+        isar.writeTxnSync(() => isar.movies.deleteSync(movie.isarId!));
+        return;
+      }
+      isar.writeTxnSync(() => isar.movies.putSync(movie));
+    } catch (e) {
+      throw Exception(e);
     }
-    isar.writeTxnSync(() => isar.movies.putSync(movie));
   }
 }
